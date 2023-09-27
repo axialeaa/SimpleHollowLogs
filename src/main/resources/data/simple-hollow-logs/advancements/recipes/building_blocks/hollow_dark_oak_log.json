@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "simple-hollow-logs:hollow_dark_oak_log"
+    ]
+  },
+  "criteria": {
+    "has_dark_oak_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:dark_oak_log"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "simple-hollow-logs:hollow_dark_oak_log"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_oak_log",
+      "has_the_recipe"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

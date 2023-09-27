@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "hollow_log",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:warped_stem"
+    }
+  },
+  "result": {
+    "item": "simple-hollow-logs:hollow_warped_stem",
+    "count": 8
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "simple-hollow-logs:block/hollow_log_horizontal",
+  "textures": {
+    "outside": "minecraft:block/spruce_log",
+    "inside": "minecraft:block/stripped_spruce_log",
+    "end": "minecraft:block/spruce_log_top"
+  }
+}
