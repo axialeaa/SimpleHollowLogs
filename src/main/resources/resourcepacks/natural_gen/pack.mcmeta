@@ -1,0 +1,8 @@
+{
+  "pack": {
+    "pack_format": 18,
+    "description": {
+      "translate": "Makes hollow logs generate naturally. This is quite heavy\nand doesn't work well with other terrain-modifying datapacks."
+    }
+  }
+}

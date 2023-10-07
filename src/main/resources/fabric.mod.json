@@ -3,14 +3,14 @@
 	"id": "simple-hollow-logs",
 	"version": "${version}",
 	"name": "Axia's Simple Hollow Logs",
-	"description": "Adds hollow logs from the birch concept art of Minecraft Live 2021!",
+	"description": "Adds the hollow logs from the birch concept art of Minecraft Live 2021!",
 	"authors": [
 		"axialeaa"
 	],
 	"contact": {
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPL-3.0",
 	"icon": "assets/simple-hollow-logs/icon.png",
 	"environment": "*",
 	"entrypoints": {

@@ -56,7 +56,7 @@ public class ModBlocks {
         Registry.register(Registries.ITEM, new Identifier(MainEntrypoint.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
     }
     public static void registerModBlocks() {
-        MainEntrypoint.LOGGER.info(MainEntrypoint.MOD_ID + " blocks registered!");
+        MainEntrypoint.LOGGER.info(MainEntrypoint.MOD_NAME + " registered!");
     }
 
 }
