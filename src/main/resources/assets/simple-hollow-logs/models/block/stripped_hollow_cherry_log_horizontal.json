@@ -1,8 +1,0 @@
-{
-  "parent": "simple-hollow-logs:block/hollow_log_horizontal",
-  "textures": {
-    "outside": "minecraft:block/stripped_cherry_log",
-    "inside": "minecraft:block/stripped_cherry_log",
-    "end": "minecraft:block/stripped_cherry_log_top"
-  }
-}

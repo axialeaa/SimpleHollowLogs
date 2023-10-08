@@ -25,7 +25,7 @@ public class MainEntrypoint implements ModInitializer {
 		ModBlockBehaviours.setFlammability();
 
 		FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(modContainer ->
-				ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MOD_ID, "natural_gen"), modContainer, Text.of("Natural Generation"), ResourcePackActivationType.NORMAL)
+				ResourceManagerHelper.registerBuiltinResourcePack(new Identifier("axialeaa", "natural_gen"), modContainer, Text.of("Natural Generation"), ResourcePackActivationType.NORMAL)
 		);
 
 		LOGGER.info(MOD_NAME + " initialized. That's all you need to know. This is a hollow logger.");

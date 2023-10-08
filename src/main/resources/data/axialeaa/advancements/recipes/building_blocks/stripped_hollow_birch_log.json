@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "axialeaa:stripped_hollow_birch_log"
+    ]
+  },
+  "criteria": {
+    "has_stripped_birch_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stripped_birch_log"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "axialeaa:stripped_hollow_birch_log"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stripped_birch_log",
+      "has_the_recipe"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

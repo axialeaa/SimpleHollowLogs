@@ -1,0 +1,8 @@
+{
+  "parent": "axialeaa:block/hollow_log",
+  "textures": {
+    "outside": "minecraft:block/acacia_log",
+    "inside": "minecraft:block/stripped_acacia_log",
+    "end": "minecraft:block/acacia_log_top"
+  }
+}
