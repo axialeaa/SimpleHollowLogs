@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "simple-hollow-logs:hollow_spruce_log",
-    "simple-hollow-logs:stripped_hollow_spruce_log"
+    "axialeaa:hollow_spruce_log",
+    "axialeaa:stripped_hollow_spruce_log"
   ]
 }

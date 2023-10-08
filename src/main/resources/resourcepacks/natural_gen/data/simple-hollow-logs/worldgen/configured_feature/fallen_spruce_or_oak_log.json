@@ -38,7 +38,7 @@
                 "provider": {
                   "type": "minecraft:simple_state_provider",
                   "state": {
-                    "Name": "simple-hollow-logs:hollow_spruce_log",
+                    "Name": "axialeaa:hollow_spruce_log",
                     "Properties": {
                       "axis": "z"
                     }
@@ -85,7 +85,7 @@
                 "provider": {
                   "type": "minecraft:simple_state_provider",
                   "state": {
-                    "Name": "simple-hollow-logs:hollow_spruce_log",
+                    "Name": "axialeaa:hollow_spruce_log",
                     "Properties": {
                       "axis": "x"
                     }
@@ -135,7 +135,7 @@
                 "provider": {
                   "type": "minecraft:simple_state_provider",
                   "state": {
-                    "Name": "simple-hollow-logs:hollow_oak_log",
+                    "Name": "axialeaa:hollow_oak_log",
                     "Properties": {
                       "axis": "z"
                     }
@@ -182,7 +182,7 @@
                 "provider": {
                   "type": "minecraft:simple_state_provider",
                   "state": {
-                    "Name": "simple-hollow-logs:hollow_oak_log",
+                    "Name": "axialeaa:hollow_oak_log",
                     "Properties": {
                       "axis": "x"
                     }

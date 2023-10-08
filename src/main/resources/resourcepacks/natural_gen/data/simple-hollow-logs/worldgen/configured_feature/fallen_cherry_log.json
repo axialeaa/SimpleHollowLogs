@@ -37,7 +37,7 @@
                 "provider": {
                   "type": "minecraft:simple_state_provider",
                   "state": {
-                    "Name": "simple-hollow-logs:hollow_cherry_log",
+                    "Name": "axialeaa:hollow_cherry_log",
                     "Properties": {
                       "axis": "z"
                     }
@@ -84,7 +84,7 @@
                 "provider": {
                   "type": "minecraft:simple_state_provider",
                   "state": {
-                    "Name": "simple-hollow-logs:hollow_cherry_log",
+                    "Name": "axialeaa:hollow_cherry_log",
                     "Properties": {
                       "axis": "x"
                     }

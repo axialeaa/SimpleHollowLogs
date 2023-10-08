@@ -50,10 +50,10 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(MainEntrypoint.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, new Identifier("axialeaa", name), block);
     }
     private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, new Identifier(MainEntrypoint.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registries.ITEM, new Identifier("axialeaa", name), new BlockItem(block, new FabricItemSettings()));
     }
     public static void registerModBlocks() {
         MainEntrypoint.LOGGER.info(MainEntrypoint.MOD_NAME + " registered!");

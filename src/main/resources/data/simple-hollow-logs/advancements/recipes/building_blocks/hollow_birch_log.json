@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "simple-hollow-logs:hollow_birch_log"
+        "recipe": "axialeaa:hollow_birch_log"
       }
     }
   },

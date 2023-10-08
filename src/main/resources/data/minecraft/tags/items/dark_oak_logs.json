@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "simple-hollow-logs:hollow_dark_oak_log",
-    "simple-hollow-logs:stripped_hollow_dark_oak_log"
+    "axialeaa:hollow_dark_oak_log",
+    "axialeaa:stripped_hollow_dark_oak_log"
   ]
 }
