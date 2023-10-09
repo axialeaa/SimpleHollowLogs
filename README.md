@@ -13,5 +13,5 @@ Currently, this mod features hollow log variants of every vanilla log type. Logs
 
 Hollow logs are located to the right of their solid counterparts in the creative inventory. In survival mode, you can craft 8 regular logs into a donut shape (similar to the chest recipe) to get 8 hollow logs of this variant in return. You can also find hollow logs generating naturally in some forest-y biomes across the overworld!
 
-Hollow logs can be stripped and waterlogged, and have a collision box just the right size to crawl inside with a trapdoor, as shown.
-![image](https://github.com/axialeaa/SimpleHollowLogs/assets/116074698/de7ecbab-e1d5-45d3-9f47-e50db44c1c8d)
+Hollow logs can be stripped and waterlogged, and have a collision box just the right size to crawl inside with a trapdoor, as shown. ![2023-10-09_18 19 49](https://github.com/axialeaa/SimpleHollowLogs/assets/116074698/e9385a02-b429-45d7-88e7-7c9d2ead2bc0)
+
