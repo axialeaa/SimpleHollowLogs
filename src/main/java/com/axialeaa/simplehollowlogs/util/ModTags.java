@@ -1,6 +1,5 @@
 package com.axialeaa.simplehollowlogs.util;
 
-import com.axialeaa.simplehollowlogs.MainEntrypoint;
 import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
