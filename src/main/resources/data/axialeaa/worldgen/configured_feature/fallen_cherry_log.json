@@ -14,17 +14,17 @@
                   "type": "minecraft:replaceable"
                 },
                 {
-                  "type": "minecraft:matching_blocks",
+                  "type": "minecraft:has_sturdy_face",
                   "offset": [
                     0,
                     -1,
                     0
                   ],
-                  "blocks": "minecraft:grass_block"
+                  "direction": "up"
                 }
               ]
             },
-            "prioritize_tip": false,
+            "prioritize_tip": true,
             "layers": [
               {
                 "height": {
@@ -61,17 +61,17 @@
                   "type": "minecraft:replaceable"
                 },
                 {
-                  "type": "minecraft:matching_blocks",
+                  "type": "minecraft:has_sturdy_face",
                   "offset": [
                     0,
                     -1,
                     0
                   ],
-                  "blocks": "minecraft:grass_block"
+                  "direction": "up"
                 }
               ]
             },
-            "prioritize_tip": false,
+            "prioritize_tip": true,
             "layers": [
               {
                 "height": {
