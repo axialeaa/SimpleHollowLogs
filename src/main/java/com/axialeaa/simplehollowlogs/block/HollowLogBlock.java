@@ -14,6 +14,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -28,18 +29,15 @@ public class HollowLogBlock extends PillarBlock implements Waterloggable {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    // constructs voxelshapes for each side of a cube, and stitches the relevant sides together for the block collision
-    // this leads to overlapping cuboids, but is a more efficient way of constructing individual collisions for each orientation
-    public static final VoxelShape TOP_CUBOID = Block.createCuboidShape(0.0, 13.0, 0.0, 16.0, 16.0, 16.0);
-    public static final VoxelShape BOTTOM_CUBOID = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 3.0, 16.0);
-    public static final VoxelShape EAST_CUBOID = Block.createCuboidShape(13.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-    public static final VoxelShape WEST_CUBOID = Block.createCuboidShape(0.0, 0.0, 0.0, 3.0, 16.0, 16.0);
-    public static final VoxelShape NORTH_CUBOID = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 3.0);
-    public static final VoxelShape SOUTH_CUBOID = Block.createCuboidShape(0.0, 0.0, 13.0, 16.0, 16.0, 16.0);
+    public static final VoxelShape X_SHAPE = createHollowLogShape(Block.createCuboidShape(0.0, 3.0, 3.0, 16.0, 13.0, 13.0));
+    public static final VoxelShape Y_SHAPE = createHollowLogShape(Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 16.0, 13.0));
+    public static final VoxelShape Z_SHAPE = createHollowLogShape(Block.createCuboidShape(3.0, 3.0, 0.0, 13.0, 13.0, 16.0));
 
-    public static final VoxelShape X_SHAPE = VoxelShapes.union(TOP_CUBOID, BOTTOM_CUBOID, NORTH_CUBOID, SOUTH_CUBOID);
-    public static final VoxelShape Y_SHAPE = VoxelShapes.union(NORTH_CUBOID, SOUTH_CUBOID, EAST_CUBOID, WEST_CUBOID);
-    public static final VoxelShape Z_SHAPE = VoxelShapes.union(TOP_CUBOID, BOTTOM_CUBOID, EAST_CUBOID, WEST_CUBOID);
+    private static VoxelShape createHollowLogShape(VoxelShape holeShape) {
+        return VoxelShapes.combineAndSimplify(VoxelShapes.fullCube(), holeShape, BooleanBiFunction.ONLY_FIRST);
+        // construct voxelshapes by subtracting a hole from a full cube
+        // this is more optimised than the previously devised method of stitching 4 relevant sides together from a list of a possible 6
+    }
 
     private final BlockState strippedState;
 
@@ -47,6 +45,9 @@ public class HollowLogBlock extends PillarBlock implements Waterloggable {
         super(settings);
         setDefaultState(getDefaultState().with(Properties.AXIS, Direction.Axis.Y).with(WATERLOGGED, false));
         this.strippedState = strippedState;
+        // the strippedState parameter looks for a blockstate it can use for the axe stripping functionality,
+        // which we have to write from scratch due to fabric api's strippable block registry looking for a block with only an axis property,
+        // ignoring waterlogging in this case
     }
 
     public BlockState getStrippedState() {
@@ -70,20 +71,17 @@ public class HollowLogBlock extends PillarBlock implements Waterloggable {
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(WATERLOGGED)) world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        if (state.get(WATERLOGGED))
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     private VoxelShape getShape(BlockState state) {
-        switch (state.get(AXIS)) {
-            case X -> {
-                return X_SHAPE;
-            }
-            case Z -> {
-                return Z_SHAPE;
-            }
-        }
-        return Y_SHAPE; // set as the default since they place vertically if no axis value is specified
+        return switch (state.get(AXIS)) {
+            case X -> X_SHAPE;
+            case Y -> Y_SHAPE;
+            case Z -> Z_SHAPE;
+        };
     }
 
     @Override
@@ -97,8 +95,13 @@ public class HollowLogBlock extends PillarBlock implements Waterloggable {
     }
 
     @Override
+    public VoxelShape getRaycastShape(BlockState state, BlockView world, BlockPos pos) {
+        return getShape(state);
+    }
+
+    @Override
     public boolean hasSidedTransparency(BlockState state) {
-        return true; // blocks light from sides that cover the source
+        return true;
     }
 
     @Override
@@ -114,7 +117,7 @@ public class HollowLogBlock extends PillarBlock implements Waterloggable {
             return ActionResult.SUCCESS;
             // finally, make the hand visually swing to indicate an action just completed
         }
-        return ActionResult.PASS; // otherwise do nothing and make no hand swing
+        return ActionResult.PASS; // otherwise do nothing and don't swing the hand
     }
 
 }

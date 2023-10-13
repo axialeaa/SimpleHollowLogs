@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "com.axialeaa.simplehollowlogs.MainEntrypoint"
+			"com.axialeaa.simplehollowlogs.SimpleHollowLogs"
 		]
 	},
 	"depends": {
