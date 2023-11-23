@@ -1,5 +1,7 @@
 package com.axialeaa.simplehollowlogs.block;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -26,6 +28,14 @@ import net.minecraft.world.WorldAccess;
 
 @SuppressWarnings("deprecation")
 public class HollowLogBlock extends PillarBlock implements Waterloggable {
+
+    public static final MapCodec<HollowLogBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+        BlockState.CODEC.fieldOf("strippedState").forGetter(HollowLogBlock::getStrippedState),
+        createSettingsCodec()
+    ).apply(instance, HollowLogBlock::new));
+    public MapCodec<? extends HollowLogBlock> getCodec() {
+        return CODEC;
+    }
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
