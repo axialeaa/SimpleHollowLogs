@@ -8,12 +8,20 @@
 		"axialeaa"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/simple-hollow-logs",
-		"sources": "https://github.com/axialeaa/SimpleHollowLogs"
+		"sources": "https://github.com/axialeaa/SimpleHollowLogs",
+		"issues": "https://github.com/axialeaa/SimpleHollowLogs/issues"
 	},
-	"license": "LGPL-3.0",
+	"license": "LGPLv3",
 	"icon": "assets/axialeaa/simple-hollow-logs.png",
 	"environment": "*",
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.github_releases": "https://github.com/axialeaa/SimpleHollowLogs/releases",
+				"modmenu.modrinth": "https://modrinth.com/mod/simple-hollow-logs"
+			}
+		}
+	},
 	"entrypoints": {
 		"main": [
 			"com.axialeaa.simplehollowlogs.SimpleHollowLogs"
@@ -21,7 +29,7 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.14.22",
-		"minecraft": "~1.20.2",
+		"minecraft": "~1.20.3",
 		"java": ">=17",
 		"fabric-api": "*"
 	}
