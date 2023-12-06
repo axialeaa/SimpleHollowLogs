@@ -5,6 +5,9 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
+/**
+ * Registry for all hollow log features.
+ */
 public class HollowLogPlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> FALLEN_BIRCH_FOREST_LOG = registerKey("fallen_birch_forest_log");

@@ -43,21 +43,26 @@ public class HollowLogBlock extends PillarBlock implements Waterloggable {
     public static final VoxelShape Y_SHAPE = createHollowLogShape(Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 16.0, 13.0));
     public static final VoxelShape Z_SHAPE = createHollowLogShape(Block.createCuboidShape(3.0, 3.0, 0.0, 13.0, 13.0, 16.0));
 
+    /**
+     * Construct voxelshapes by subtracting a hole from a full cube.
+     * This is more optimised than the previously devised method of stitching 4 relevant sides together from a list of a possible 6.
+     * @param holeShape a cuboid that matches the dimensions of the hole going through the middle of the log
+     * @return the {@link VoxelShape} of the log based on the inputted holeShape parameter.
+     */
     private static VoxelShape createHollowLogShape(VoxelShape holeShape) {
         return VoxelShapes.combineAndSimplify(VoxelShapes.fullCube(), holeShape, BooleanBiFunction.ONLY_FIRST);
-        // construct voxelshapes by subtracting a hole from a full cube
-        // this is more optimised than the previously devised method of stitching 4 relevant sides together from a list of a possible 6
     }
 
     private final BlockState strippedState;
 
+    /**
+     * @param strippedState the stripped counterpart of this hollow log used for the axe stripping functionality
+     * @param settings the hollow log block settings
+     */
     public HollowLogBlock(BlockState strippedState, Settings settings) {
         super(settings);
         setDefaultState(getDefaultState().with(Properties.AXIS, Direction.Axis.Y).with(WATERLOGGED, false));
         this.strippedState = strippedState;
-        // the strippedState parameter looks for a blockstate it can use for the axe stripping functionality,
-        // which we have to write from scratch due to fabric api's strippable block registry looking for a block with only an axis property,
-        // ignoring waterlogging in this case
     }
 
     public BlockState getStrippedState() {
@@ -114,20 +119,20 @@ public class HollowLogBlock extends PillarBlock implements Waterloggable {
         return true;
     }
 
+    /**
+     * We have to write the axe stripping functionality from scratch due to Fabric API's {@link net.fabricmc.fabric.api.registry.StrippableBlockRegistry} only caring about the axis property. This essentially led to the waterlogged state being reset to the default value (false) when the log was stripped.
+     */
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand); // find the item that the player is holding
-        if (getStrippedState() != null && itemStack.getItem() instanceof AxeItem) {
-            // if the blockstate set as the strippedState param of the constructor is not null and the item is a type of axe...
+        ItemStack stack = player.getStackInHand(hand);
+        if (getStrippedState() != null && stack.getItem() instanceof AxeItem) {
             world.setBlockState(pos, getStrippedState().with(AXIS, state.get(AXIS)).with(WATERLOGGED, state.get(WATERLOGGED)));
             world.playSound(null, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            // set the blockstate at this position to the strippedState, conserving the axis and waterlogged properties, and play the stripping sound
-            if (!player.isCreative()) itemStack.damage(1, player, p -> p.sendToolBreakStatus(hand));
-            // if the player is in survival mode, decrement the durability of the axe
+            if (!player.isCreative())
+                stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
             return ActionResult.SUCCESS;
-            // finally, make the hand visually swing to indicate an action just completed
         }
-        return ActionResult.PASS; // otherwise do nothing and don't swing the hand
+        return ActionResult.PASS;
     }
 
 }

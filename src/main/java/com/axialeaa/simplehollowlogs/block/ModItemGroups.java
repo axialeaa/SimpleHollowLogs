@@ -8,7 +8,9 @@ import static net.minecraft.block.Blocks.*;
 
 public class ModItemGroups {
 
-    @SuppressWarnings("all") // otherwise it screams at us for every "addAfter"..
+    /**
+     * Configures the positions of the hollow log blocks in the creative inventory (always right after the non-hollow counterpart).
+     */
     public static void registerItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
             content.addAfter(OAK_LOG,               HOLLOW_OAK_LOG);
@@ -31,7 +33,6 @@ public class ModItemGroups {
             content.addAfter(STRIPPED_CRIMSON_STEM, STRIPPED_HOLLOW_CRIMSON_STEM);
             content.addAfter(WARPED_STEM,           HOLLOW_WARPED_STEM);
             content.addAfter(STRIPPED_WARPED_STEM,  STRIPPED_HOLLOW_WARPED_STEM);
-            // configures the positions of the hollow log blocks in the creative inventory (always right after the non-hollow counterpart)
         });
     }
 

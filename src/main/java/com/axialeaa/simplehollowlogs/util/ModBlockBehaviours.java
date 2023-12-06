@@ -18,6 +18,9 @@ public class ModBlockBehaviours {
         FlammableBlockRegistry.getDefaultInstance().add(ModTags.HOLLOW_LOGS_THAT_BURN, 5, 5);
     }
 
+    /**
+     * Define the biomes each placed log feature can generate in. This takes the place of the previous method which involved modifying vanilla biome json files: a very clunky system with a lot of inherent incompatibility.
+     */
     public static void placeInBiome() {
         createLogFeature(FALLEN_BIRCH_FOREST_LOG, 		BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST);
         createLogFeature(FALLEN_CHERRY_GROVE_LOG, 		CHERRY_GROVE);

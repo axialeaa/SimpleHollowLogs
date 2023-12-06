@@ -11,6 +11,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+/**
+ * Registry for all hollow log types. The stripped ones are registered first in order to avoid illegal forward-references.
+ */
 public class ModBlocks {
 
     public static final Block STRIPPED_HOLLOW_OAK_LOG = registerBlock("stripped_hollow_oak_log", createStrippedHollowLogBlock(Blocks.STRIPPED_OAK_LOG));
@@ -23,7 +26,7 @@ public class ModBlocks {
     public static final Block STRIPPED_HOLLOW_CHERRY_LOG = registerBlock("stripped_hollow_cherry_log", createStrippedHollowLogBlock(Blocks.STRIPPED_CHERRY_LOG));
     public static final Block STRIPPED_HOLLOW_CRIMSON_STEM = registerBlock("stripped_hollow_crimson_stem", createStrippedHollowLogBlock(Blocks.STRIPPED_CRIMSON_STEM));
     public static final Block STRIPPED_HOLLOW_WARPED_STEM = registerBlock("stripped_hollow_warped_stem", createStrippedHollowLogBlock(Blocks.STRIPPED_WARPED_STEM));
-    // the stripped ones are registered first to avoid illegal forward references
+
     public static final Block HOLLOW_OAK_LOG = registerBlock("hollow_oak_log", createHollowLogBlock(STRIPPED_HOLLOW_OAK_LOG, Blocks.OAK_LOG));
     public static final Block HOLLOW_SPRUCE_LOG = registerBlock("hollow_spruce_log", createHollowLogBlock(STRIPPED_HOLLOW_SPRUCE_LOG, Blocks.SPRUCE_LOG));
     public static final Block HOLLOW_BIRCH_LOG = registerBlock("hollow_birch_log", createHollowLogBlock(STRIPPED_HOLLOW_BIRCH_LOG, Blocks.BIRCH_LOG));
@@ -35,7 +38,11 @@ public class ModBlocks {
     public static final Block HOLLOW_CRIMSON_STEM = registerBlock("hollow_crimson_stem", createHollowLogBlock(STRIPPED_HOLLOW_CRIMSON_STEM, Blocks.CRIMSON_STEM));
     public static final Block HOLLOW_WARPED_STEM = registerBlock("hollow_warped_stem", createHollowLogBlock(STRIPPED_HOLLOW_WARPED_STEM, Blocks.WARPED_STEM));
 
-
+    /**
+     * This is where the stripped states of each log are handled. Passing in null is fine for the already-stripped ones, since the method that controls axe stripping implements a nullcheck before going through with the stripping anyway.
+     * @param counterpart the vanilla log type the hollow log is a variant of, for copying the settings.
+     * @return a new instance of {@link HollowLogBlock}.
+     */
     private static HollowLogBlock createStrippedHollowLogBlock(AbstractBlock counterpart) {
         return new HollowLogBlock(null, FabricBlockSettings.copy(counterpart));
     }
@@ -43,7 +50,9 @@ public class ModBlocks {
         return new HollowLogBlock(strippedBlock.getDefaultState(), FabricBlockSettings.copy(counterpart));
     }
 
-
+    /**
+     * I decided to use my name as the namespace for this mod, just in case I make more mods that add blocks into the game.
+     */
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier("axialeaa", name), block);
