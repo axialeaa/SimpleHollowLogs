@@ -15,7 +15,7 @@ Hollow logs may also be stripped using an axe.
 ***
 
 ### Getting Started
-Due to the use of `FlammableBlockRegistry`, `FabricItemSettings`, `ItemGroupEvents`, `BiomeModifications` and `BiomeSelectors`, you will need to download [Fabric API](https://modrinth.com/mod/fabric-api) in order to use this mod. Once you have, simply drag both Fabric API and Simple Hollow Logs in your mods folder. If you're playing on a multiplayer server, you'll need to have these mods installed on both the server and client sides.
+Due to the use of `FlammableBlockRegistry`, `FabricItemSettings`, `ItemGroupEvents`, `BiomeModifications` and `BiomeSelectors`, you will need to download [Fabric API](https://modrinth.com/mod/fabric-api) in order to use this mod. Once you have, simply drag both Fabric API and Simple Hollow Logs into your mods folder. If you're playing on a multiplayer server, you'll need to have these mods installed on both the server and client sides.
 ***
 
 ### Mod Compatibility
