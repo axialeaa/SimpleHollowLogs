@@ -1,17 +1,22 @@
 # Hi there! Thank you for checking out Simple Hollow Logs!
-<img align="right" width="130" src="src/main/resources/assets/axialeaa/simple-hollow-logs.png">
+<img align="right" width="120" src="src/main/resources/assets/axialeaa/simple-hollow-logs.png">
 
-Simple Hollow Logs is a server-side [Fabric](https://fabricmc.net) mod that attempts to add the hollow logs from the Minecraft Live 2021 Birch Forest concept art!
+[![GitHub downloads](https://img.shields.io/github/downloads/axialeaa/SimpleHollowLogs/total?label=Github%20downloads&logo=github)](https://github.com/axialeaa/SimpleHollowLogs/releases)
+[![Modrinth downloads](https://img.shields.io/modrinth/dt/simple-hollow-logs?label=Modrinth%20downloads&logo=modrinth)](https://modrinth.com/mod/simple-hollow-logs)
 
-Read on to find out how to download this mod, and what opportunities doing so will provide you with!
+Simple Hollow Logs is a client and server-side [Fabric](https://fabricmc.net) mod which attempts to add the hollow logs from the Minecraft Live 2021 Birch Forest concept art! They generate naturally in some forest-like biomes across the overworld, and they can be crafted using 8 of their regular log counterparts. They also have a unique collision box, allowing you to crawl inside!
 
-## Getting Started
-Due to the use of `FlammableBlockRegistry`, `FabricItemSettings`, `ItemGroupEvents`, `BiomeModifications` and `BiomeSelectors`, you will need to download [Fabric API](https://github.com/FabricMC/fabric) in order to use this mod. Once you have, simply place both the Fabric API and Simple Hollow Logs in your mods folder.
+![](https://github.com/axialeaa/SimpleHollowLogs/assets/116074698/e9385a02-b429-45d7-88e7-7c9d2ead2bc0)
+> A player crawling inside a hollow log.
 
-## Details
-Currently, this mod features hollow log variants of every vanilla log type. Logs from other mods may be supported in the future.
+Unlike normal logs, they can be filled with water. When this happens, they will hold it in on their 4 solid faces, but will let it spill out the holes.
 
-Hollow logs are located to the right of their solid counterparts in the creative inventory. In survival mode, you can craft 8 regular logs into a donut shape (similar to the chest recipe) to get 8 hollow logs of this variant in return. You can also find hollow logs generating naturally in some forest-y biomes across the overworld!
+Hollow logs may also be stripped using an axe.
+***
 
-Hollow logs can be stripped and waterlogged, and have a collision box just the right size to crawl inside with a trapdoor, as shown. ![2023-10-09_18 19 49](https://github.com/axialeaa/SimpleHollowLogs/assets/116074698/e9385a02-b429-45d7-88e7-7c9d2ead2bc0)
+### Getting Started
+Due to the use of `FlammableBlockRegistry`, `FabricItemSettings`, `ItemGroupEvents`, `BiomeModifications` and `BiomeSelectors`, you will need to download [Fabric API](https://modrinth.com/mod/fabric-api) in order to use this mod. Once you have, simply drag both Fabric API and Simple Hollow Logs in your mods folder. If you're playing on a multiplayer server, you'll need to have these mods installed on both the server and client sides.
+***
 
+### Mod Compatibility
+Currently, this mod features hollow log variants of every vanilla log type, some of which may generate naturally in overworld biomes. Logs and biome types from other mods may be supported in the future, but it's not on the roadmap.
