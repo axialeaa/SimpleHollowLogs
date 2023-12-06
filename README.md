@@ -1,8 +1,8 @@
 # Hi there! Thank you for checking out Simple Hollow Logs!
 <img align="right" width="120" src="src/main/resources/assets/axialeaa/simple-hollow-logs.png">
 
-[![GitHub downloads](https://img.shields.io/github/downloads/axialeaa/SimpleHollowLogs/total?label=Github%20downloads&logo=github)](https://github.com/axialeaa/SimpleHollowLogs/releases)
-[![Modrinth downloads](https://img.shields.io/modrinth/dt/simple-hollow-logs?label=Modrinth%20downloads&logo=modrinth)](https://modrinth.com/mod/simple-hollow-logs)
+[![GitHub downloads](https://img.shields.io/github/downloads/axialeaa/SimpleHollowLogs/total?label=Github%20downloads&logo=github&style=for-the-badge)](https://github.com/axialeaa/SimpleHollowLogs/releases)
+[![Modrinth downloads](https://img.shields.io/modrinth/dt/simple-hollow-logs?label=Modrinth%20downloads&logo=modrinth&style=for-the-badge)](https://modrinth.com/mod/simple-hollow-logs)
 
 Simple Hollow Logs is a client and server-side [Fabric](https://fabricmc.net) mod which attempts to add the hollow logs from the Minecraft Live 2021 Birch Forest concept art! They generate naturally in some forest-like biomes across the overworld, and they can be crafted using 8 of their regular log counterparts. They also have a unique collision box, allowing you to crawl inside!
 
